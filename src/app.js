@@ -1,0 +1,10 @@
+require("dotenv").config({ path: "AuthenticationPage/.env" });
+const express = require("express");
+const logInModel = require("./models/Model");
+const port = process.env.PORT || 3000;
+const app = express();
+const router = require("./router/Routers");
+require("./db/connect");
+const auth = require("./middleware/Auth");
+app.use(router);
+app.listen(port);

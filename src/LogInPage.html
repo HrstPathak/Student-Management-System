@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login_Create</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+    background: linear-gradient(to top, #aaffa9, #11ffbd);
+    
+  width: 100vw;
+  height: 100vh;
+}
+.outer__Cotainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 80vh;
+  /* width: 98vw;
+  height: 67vh; */
+}
+.outer_block {
+  position: relative;
+  box-shadow: 0px 0px 20px black;
+  justify-content: center;
+  display: flex;
+  width: 60%;
+  height: 96%;
+  text-align: center;
+  overflow: hidden;
+  
+  background: linear-gradient(to top, #a1ffce, #faffd1);
+}
+.inner_block {
+  background-image: url("https://imgs.bharatmatrimony.com/bmimgs/login/login-otp-banner.png");
+    background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+.header {
+  font-size: 2.5rem;
+  letter-spacing: 5px;
+  font-weight: 700;
+  font-family: Tahoma, sans-serif;
+  margin-bottom: 1.5rem;
+  text-decoration: underline;
+}
+#LoginUserName,
+#createUserName,
+#CreateUserEmail,
+#CreateUserRePassword {
+  padding: 0.3rem;
+  border-radius: 7px;
+  border: 3px solid grey;
+  outline: none;
+}
+#LoginUserPassword,
+#CreateUserPassword {
+  width: 10rem;
+  padding: 0.3rem;
+  border-radius: 7px 0px 0px 7px;
+  border-top: 3px solid grey;
+  border-left: 3px solid grey;
+  border-bottom: 3px solid grey;
+  outline: none;
+}
+.eyeButton {
+  outline: none;
+  background-color: #fff;
+  padding: 0.3rem;
+  border-radius: 0px 7px 7px 0px;
+  border-left: 0px;
+  border-top: 3px solid grey;
+  border-bottom: 3px solid grey;
+  border-right: 3px solid grey;
+}
+.text_ {
+  font-weight: 700;
+  font-size: 1.1rem;
+  width: 2rem;
+}
+.message1{
+  font-weight: 700;
+}
+.loginbutton_div {
+  display: flex;
+  justify-content: center;
+}
+.loginbutton_div button {
+  border: 2px solid black;
+  border-radius: 7px;
+  background-color: rgb(6, 175, 42);
+  font-size: 1rem;
+  font-weight: 600;
+}
+.loginbutton_div button:hover {
+  box-shadow: 0px 0px 5px black;
+  color: white;
+}
+button {
+  outline: none;
+}
+.createButton {
+  color: rgb(6, 175, 42);
+  text-shadow: 1px 1px 1px black;
+  text-decoration: underline;
+  letter-spacing: 3px;
+  font-weight: 900;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 1.2rem;
+}
+.createButton:hover {
+  text-shadow: 1px 1px 1px rgb(255, 255, 255);
+
+}
+.navbar {
+  margin-bottom: 2rem;
+}
+.fa-lock {
+  color: white;
+}
+.colon{
+    font-size: 1rem;
+    font-weight: 1000;
+}
+.signinButton {
+  margin-top: 1rem;
+  margin-bottom: 1.2rem;
+}
+.block2 {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTac_Yg3Nd8jYV_bUBeY8Kn693jFpKapt1jfQ&usqp=CAU");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+    /* background: linear-gradient(to left, #c6ffdd, #fbd786, #f7797d); */
+  position: absolute;
+  left: 110%;
+  top: 0%;
+  transition: all;
+  transition-duration: 1s;
+}
+.block2_active {
+  left: 0%;
+}
+.acc_msg{
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+.arrow{
+    color: rgb(6, 175, 34);
+    margin-top: -1rem;
+    font-size: 2rem;
+    text-shadow: 2px 2px 3px black ;
+
+}
+
+@media only screen and (max-width: 600px) {
+  .outer_block {
+    background-color: red;
+    width: 330px;
+    height: 375px;
+  }
+}
+
+    </style>
+    <link rel="stylesheet" href="./src/style.css">
+  </head>
+  
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <i class="fas fa-lock"></i></i>
+        <a id="navbarContent" class="navbar-brand"></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">M E N U</h5>
+            <button
+              type="button"
+              class="btn-close text-reset"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body offcanvas-dark bg-dark">
+            <p class="text-light" >NOTHING TO SEE HERE.....</p>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="outer__Cotainer">
+      <div class="outer_block">
+        <div class="inner_block block1">
+          <div class="header">SIGN IN</div>
+          <div class="message1" id="Loginmessage"></div>
+          <div>
+            <form action="/register2" method="POST" >
+              <table>
+                <tr>
+                  <td class="text_">UserEmail</td>
+                  <td><div class="colon">:</div></td>
+                  <td>
+                    <input
+                      id="LoginUserName"
+                      type="email"
+                      required
+                      autocomplete=""
+                      placeholder="abc@gmail.com"
+                      name="Email"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text_">Password</td>
+                  <td><div class="colon">:</div></td>
+                  <td>
+                    <input
+                      id="LoginUserPassword"
+                      type="password"
+                      required
+                      placeholder="password"
+                      autocomplete=""
+                      name="Password"
+                    /><button onclick="PasswordVisibleLogin()"  class="eyeButton" type="button">
+                      <i id="EyeButton1" class="fas fa-eye"></i>
+                    </button>
+                  </td>
+                </tr>
+              </table>
+              <div class="loginbutton_div signinButton">
+                <button type="submit">SIGN IN</button>
+              </div>
+            </form>
+          </div>
+          <div class="acc_msg">Not have an Account?</div>
+          <button class="createButton" onclick="CreatePageActive()"  type="button">
+            Create Account
+          </button>
+          <div class="arrow" onclick="CreatePageActive()"><i class="fas fa-long-arrow-alt-right"></i></div>
+        </div>
+        <div id="block2" class="inner_block block2">
+          <div class="header">SIGN UP</div>
+          <div class="message1" id="Signupmessage"></div>
+          <div>
+            <form onsubmit="return createUser()" action="/register" method="POST">
+              <table>
+                <tr>
+                  <td class="text_">Name</td>
+                  <td><div class="colon">:</div></td>
+                  <td>
+                    <input
+                      id="createUserName"
+                      type="text"
+                      required
+                      autocomplete=""
+                      placeholder="name"
+                      name="Name"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text_">UserEmail</td>
+                  <td><div class="colon">:</div></td>
+                  <td>
+                    <input
+                      id="CreateUserEmail"
+                      type="email"
+                      required
+                      autocomplete=""
+                      placeholder="abc@gmail.com"
+                      name="Email"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text_">Password</td>
+                  <td><div class="colon">:</div></td>
+                  <td>
+                    <input
+                      id="CreateUserPassword"
+                      type="password"
+                      required
+                      placeholder="password"
+                      autocomplete=""
+                      name="Password"
+                    /><button onclick="passwordvisiblecreate()" class="eyeButton" type="button">
+                      <i id="EyeButton" class="fas fa-eye"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text_">RE-Enter Password</td>
+                  <td><div class="colon">:</div></td>
+                  <td>
+                    <input
+                      id="CreateUserRePassword"
+                      type="password"
+                      required
+                      placeholder="Re-password"
+                      autocomplete=""
+                      name="LoginUserPassword"
+                    />
+                  </td>
+                </tr>
+              </table>
+              <div class="loginbutton_div">
+                <button  type="submit">Sign up</button>
+              </div>
+            </form>
+          </div>
+          <div class="acc_msg">Have an Account?</div>
+          <button onclick="CreatePageInActive()" class="createButton" type="button">
+            Sign In</button>
+            
+            <div onclick="CreatePageInActive()" class="arrow">
+                <i class="fas fa-long-arrow-alt-left"></i>
+            </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let EyeButton = document.getElementById("EyeButton");
+let EyeButton_1 = document.getElementById("EyeButton1");
+let block2 = document.getElementById("block2");
+let createUserName = document.getElementById("createUserName");
+let createUserEmail = document.getElementById("CreateUserEmail");
+let createUserPassword = document.getElementById("CreateUserPassword");
+let createUserRePasssword = document.getElementById("CreateUserRePassword");
+let SignUpMessage = document.getElementById("Signupmessage");
+let Loginmessage = document.getElementById("Loginmessage");
+let LoginUserName = document.getElementById("LoginUserName");
+let totalUsers = localStorage.getItem("USERS");
+let PresentedUser = JSON.parse(totalUsers);
+let LoginUserPassword = document.getElementById("LoginUserPassword");
+let i = 0;
+function createUser() {
+  C_Name = createUserName.value;
+  C_Email = createUserEmail.value;
+  C_Password = createUserPassword.value;
+  C_RePassword = createUserRePasssword.value;
+
+  if (C_Password === C_RePassword) {
+    if (PresentedUser != null) {
+      return true;
+        
+      }
+    
+  } else {
+    // console.log("Password not matched with reEnter one");
+    SignUpMessage.innerHTML =
+      "Re-entered password doesn't match with entered password";
+    SignUpMessage.style.color = "red";
+    return false;
+  }
+}
+function SignInUser() {
+  let L_EMAIL = LoginUserName.value;
+  let L_Password = LoginUserPassword.value;
+  let totalUser = localStorage.getItem("USERS");
+let PresentedUserLogin = JSON.parse(totalUser);
+
+  for (i = 0; i < PresentedUserLogin.length; i++) {
+    if (L_EMAIL === PresentedUserLogin[i].EMAIL) {
+      if (L_Password === PresentedUserLogin[i].PASSWORD) {
+        i=PresentedUserLogin.length+10
+        Loginmessage.innerText = "SUCCESSFULLY Signed inn.";
+        Loginmessage.style.color = "green";
+        LoginUserName.value="";
+        LoginUserPassword.value="";
+      } else {
+        Loginmessage.innerText = "Invalid Login";
+        Loginmessage.style.color = "red";
+      }
+    }
+     else {
+      Loginmessage.innerText = "Invalid Login";
+      Loginmessage.style.color = "red";
+    }
+  }
+}
+
+function passwordvisiblecreate() {
+  if (createUserPassword.type === "password") {
+    EyeButton.classList.remove("fa-eye");
+    EyeButton.classList.add("fa-eye-slash");
+    createUserPassword.type = "text";
+  } else {
+    EyeButton.classList.remove("fa-eye-slash");
+    EyeButton.classList.add("fa-eye");
+    createUserPassword.type = "password";
+  }
+}
+function PasswordVisibleLogin() {
+  if (LoginUserPassword.type === "password") {
+    EyeButton1.classList.remove("fa-eye");
+    EyeButton1.classList.add("fa-eye-slash");
+    LoginUserPassword.type = "text";
+  } else {
+    EyeButton1.classList.remove("fa-eye-slash");
+    EyeButton1.classList.add("fa-eye");
+    LoginUserPassword.type = "password";
+  }
+}
+
+function CreatePageActive() {
+  block2.classList.add("block2_active");
+}
+function CreatePageInActive() {
+  block2.classList.remove("block2_active");
+}
+
+    </script>
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"
+  ></script>
+  </body>
+</html>
+
